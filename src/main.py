@@ -64,7 +64,7 @@ class MainWindow(QMainWindow):
         self.expenseButton.clicked.connect(self.expense_add)
 
     def expense_add(self):
-        expense = {"date":self.dateInput.date().toString(), "amount":self.amountInput.text(), "type":self.typeInput.currentText()[0], "description":self.descriptionInput.toPlainText()}
+        expense = {"date":self.dateInput.date().toString(), "amount": float(self.amountInput.text()), "type":self.typeInput.currentText()[0], "description":self.descriptionInput.toPlainText()}
         self.amountInput.clear()
         self.descriptionInput.clear()
 
