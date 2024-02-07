@@ -48,6 +48,7 @@ class MainWindow(QMainWindow):
         self.typeInput.setGeometry(80, 70, 80, 20)
         self.typeInput.addItems(['Obligatory', 'Normal', 'Extra', 'Income', 'Stocks'])
 
+
         # Description label
         self.descriptionLabel = QLabel(self)
         self.descriptionLabel.setGeometry(10, 100, 50, 20)
@@ -63,9 +64,9 @@ class MainWindow(QMainWindow):
         self.expenseButton.clicked.connect(self.expense_add)
 
     def expense_add(self):
-        expense = {"date":self.dateInput.date().toString(), "amount":self.amountInput.text(), "type":self.typeInput.currentData(), "description":self.descriptionInput.toPlainText()}
+        expense = {"date":self.dateInput.date().toString(), "amount":self.amountInput.text(), "type":self.typeInput.currentText()[0], "description":self.descriptionInput.toPlainText()}
         self.amountInput.clear()
-        self.typeInput.clear()
+        self.descriptionInput.clear()
 
         self.json_handler.file_expense_add(expense)
 
